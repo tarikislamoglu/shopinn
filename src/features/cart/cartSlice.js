@@ -26,7 +26,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCartList: (state, { payload }) => {
-      state.cartItems.cart.push(payload);
+      state.cartItems.cart.push({ ...payload });
       calculateTotals(state);
     },
     removeItemFromCartList: (state, { payload }) => {
@@ -71,11 +71,11 @@ const cartSlice = createSlice({
     addItemToOrderList: (state, { payload }) => {
       state.cartItems.orders.push(payload);
     },
-    removeItemFromOrderList: (state, { payload }) => {
-      state.cartItems.orders = state.cartItems.orders.filter(
-        (order) => order.orderId !== payload.id
-      );
-    },
+    // removeItemFromOrderList: (state, { payload }) => {
+    //   state.cartItems.orders = state.cartItems.orders.filter(
+    //     (order) => order.orderId !== payload.id
+    //   );
+    // },
   },
 });
 

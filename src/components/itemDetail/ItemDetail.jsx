@@ -7,6 +7,7 @@ function ItemDetail() {
   const dispatch = useDispatch();
   const { cart, products } = useSelector((state) => state.cart.cartItems);
   const getItemDetail = (id) => products.filter((item) => item.id === id)[0];
+
   const params = useParams();
   const itemId = parseInt(params?.id);
   const item = !!itemId && getItemDetail(itemId);
@@ -44,16 +45,23 @@ function ItemDetail() {
             <option value={"L"}> Boyut seçin (L)</option>
             <option value={"XL"}> Beden seçin (XL)</option>
           </select>
-          <button
-            className="text-white bg-[#343434] rounded-[5px] w-[150px] h-[35px] cursor-pointer border-0 active:bg-white active:text-initial active:border-1 active:border-gray-200"
-            disabled={isAdded}
-            onClick={() => {
-              dispatch(addItemToCartList({ ...item, count: 1 }));
-              setIsAdded(true);
-            }}
-          >
-            {isAdded ? <Link to="/cart">Sepete Git</Link> : "Sepete Ekle"}
-          </button>
+          {isAdded ? (
+            <button className="text-white bg-[#343434] rounded-[5px] w-[150px] h-[35px] cursor-pointer border-0 active:bg-white active:text-initial active:border-1 active:border-gray-200">
+              <Link to="/cart">Sepete Git</Link>
+            </button>
+          ) : (
+            <button
+              className="text-white bg-[#343434] rounded-[5px] w-[150px] h-[35px] cursor-pointer border-0 active:bg-white active:text-initial active:border-1 active:border-gray-200"
+              disabled={isAdded}
+              onClick={() => {
+                dispatch(addItemToCartList({ ...item, count: 1 }));
+                setIsAdded(true);
+              }}
+            >
+              Sepete Ekle
+            </button>
+          )}
+
           <p>
             Lorem Ipsum, baskı ve dizgi işlemlerinde kullanılan sahte metindir.
             Lorem Ipsum, sektörün standart sahte metni olmuştur 1500'lü
