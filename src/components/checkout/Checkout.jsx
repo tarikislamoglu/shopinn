@@ -63,7 +63,7 @@ const Checkout = () => {
                                 <span> Ürün adı : {name}</span>
                                 <span> Marka : {brand}</span>
                                 <span> Beden : {size}</span>
-                                <span> Fiyat : {price}</span>
+                                <span> Fiyat : ${price}</span>
                               </p>
                             </div>
                           </li>

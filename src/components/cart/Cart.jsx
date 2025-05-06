@@ -38,24 +38,27 @@ function Cart() {
                   </div>
                 </div>
 
-                <div className="flex">
-                  <div className="flex flex-col items-baseline px-5 ">
+                <div className="flex ">
+                  <div className="flex flex-col items-baseline px-5 space-y-2">
                     <button
-                      className="cursor-pointer p-1"
+                      className="cursor-pointer  w-8 h-8 bg-green-500 text-white"
                       onClick={() => dispatch(increaseProductCount(item.id))}
                     >
                       +
                     </button>
-                    <p>{item.count}</p>
+                    <p className="bg-amber-200 w-8  text-center h-auto">
+                      {item.count}
+                    </p>
 
                     <button
-                      className="cursor-pointer p-1"
+                      className="cursor-pointer  bg-red-500 text-white w-8 h-8"
                       onClick={() => dispatch(decreaseProductCount(item.id))}
                     >
                       -
                     </button>
                   </div>
                   <button
+                    className="text-red-500 cursor-pointer"
                     onClick={() => dispatch(removeItemFromCartList(item.id))}
                   >
                     X
@@ -75,7 +78,9 @@ function Cart() {
             </div>
           </div>
           <Link to="/checkout">
-            <button className="item-btn">Sonraki</button>
+            <button className="item-btn cursor-pointer p-2 border-2 mt-3">
+              Sonraki
+            </button>
           </Link>
         </>
       )}
