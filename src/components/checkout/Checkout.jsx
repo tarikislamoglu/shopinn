@@ -52,12 +52,12 @@ const Checkout = () => {
                 return (
                   <div key={orderId}>
                     <p>İd:{buyerId}</p>
-                    <ul>
+                    <ul className="space-y-5">
                       Ürünler:
                       {items?.map(({ id, name, brand, size, price, image }) => {
                         return (
                           <li key={id}>
-                            <div className="flex border-1 items-center p-2 rounded-md justify-between">
+                            <div className="flex border-1 items-center p-2 rounded-md justify-between w-full h-[200px]">
                               <img src={image} width={100} height={100} />
                               <p className=" flex flex-col items-start w-2/3">
                                 <span> Ürün adı : {name}</span>
